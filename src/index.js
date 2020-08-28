@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Card from './Card';
+import robots from './RoboDetails'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <div>
+    <Card id={robots[0].id} name={robots[0].name} type={robots[0].type}/>
+    <Card id={robots[3].id} name={robots[3].name} type={robots[3].type}/>
+    <Card id={robots[4].id} name={robots[4].name} type={robots[4].type}/>
+    </div>
   </React.StrictMode>,
   document.getElementById('root')
 );
