@@ -6,7 +6,7 @@ function Card({ name, type, id }) {
   return (
     // text-center, margin, padding
     //display-inlineblock, borderwidth, border-radius
-    <div className={"tc dib grow bg-light-blue bw2 br3 ma2 pa3 shadow-5"}>
+    <div className={"tc dib grow bg-lightest-blue bw2 br3 ma2 pa3 shadow-5"}>
     <img src={`https://robohash.org/robo${id}`} alt = {"roboPic"}/>
       <div>
         <h2>{name}</h2>

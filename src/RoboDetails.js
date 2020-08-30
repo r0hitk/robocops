@@ -1,4 +1,4 @@
-const robos = [
+export const robots = [
 
 {
     name: "Rocket",
@@ -27,5 +27,3 @@ const robos = [
 }
 
 ];
-
-export default robos;
