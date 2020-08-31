@@ -2,17 +2,17 @@ export const robots = [
 
 {
     name: "Rocket",
-    id: 51,
+    id: 13,
     type: "Sprinter" 
 },
 {
     name: "Andro",
     id: 5,
-    type: "Brainiac" 
+    type: "Sprinter" 
 },
 {
     name: "Bull",
-    id: 13,
+    id: 76,
     type: "Brawler" 
 },
 {
@@ -24,6 +24,26 @@ export const robots = [
     name: "Grimmy",
     id: 17,
     type: "Villain" 
+},
+{
+    name: "Skriller",
+    id: 33,
+    type: "Sprinter" 
+},
+{
+    name: "Drover",
+    id: 50,
+    type: "Villain" 
+},
+{
+    name: "Gorax",
+    id: 65,
+    type: "Brawler" 
+},
+{
+    name: "Shakti",
+    id: 44,
+    type: "Mystic" 
 }
 
 ];

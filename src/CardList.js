@@ -1,10 +1,14 @@
 import React from "react";
 import Card from "./Card";
 
+
+//props ar passed as a single object
 const CardList = ({robots}) => {
+    //here "props" could've been used instead of "robots"
 
   return (
     <div>
+        
       {robots.map((robo, i) => {
         return (
           <Card
@@ -17,6 +21,6 @@ const CardList = ({robots}) => {
       })}
     </div>
   );
-};
+}
 
 export default CardList;
