@@ -2,6 +2,8 @@
 
 A react based application which searches for any robot from a list of robots, fetched by performing a REST API call.
 
+![App](https://github.com/r0hitk/robocops/blob/master/public/robocops_readme.png)
+
 
 
 
