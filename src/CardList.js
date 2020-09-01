@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./Card";
 
 
-//props ar passed as a single object
+//props are passed as a single object
 const CardList = ({robots}) => {
     //here "props" could've been used instead of "robots"
 
