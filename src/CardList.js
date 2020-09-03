@@ -4,8 +4,8 @@ import Card from "./Card";
 
 //props are passed as a single object
 const CardList = ({robots}) => {
-    //here "props" could've been used instead of "robots"
-
+    //here "props" could've been used instead of directly destructuring "robots"  
+  
   return (
     <div>
         
