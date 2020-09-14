@@ -1,8 +1,8 @@
 import React from "react";
-import CardList from "./CardList";
-import SearchBox from "./SearchBox";
-import Scroll from "./Scroll";
-import ErrorBoundary from "./ErrorBoundary";
+import CardList from "../components/CardList";
+import SearchBox from "../components/SearchBox";
+import Scroll from "../components/Scroll";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 class App extends React.Component {
   constructor(props) {
@@ -11,12 +11,14 @@ class App extends React.Component {
       searchField: "",
       robots: [],
     };
+    console.log('constructor');
   }
 
   componentDidMount() {
     fetch("https://jsonplaceholder.typicode.com/users") //fetch is a part of window object
       .then((response) => response.json())
       .then((json) => this.setState({ robots: json }));
+      console.log('componentDidMount');
   }
 
   onSearchChange = (event) => {
@@ -26,12 +28,13 @@ class App extends React.Component {
   };
 
   render() {
+    
     const filteredRobots = this.state.robots.filter((robot) => {
       return robot.name
         .toLowerCase()
         .includes(this.state.searchField.toLowerCase());
     });
-
+    console.log('render');
     return (
       <div className="tc">
         <h1>ROBOCOPS</h1>
