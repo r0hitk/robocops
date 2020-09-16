@@ -1,19 +1,38 @@
-import { CHANGE_SEARCH_FIELD } from "./constants";
+import { CHANGE_SEARCH_FIELD, ROBOT_REQUEST_FAILED, ROBOT_REQUEST_PENDING, ROBOT_REQUEST_SUCCESS } from "./constants";
 
-const initialState = {
-    searchField : ""
+const initialStateSearch = {
+  searchField: "",
+};
+
+//a reducer which takes an action and changes the state in the redux store based on the action
+export const searchRobots = (state = initialStateSearch, action = {}) => {
+  
+    switch (action.type) {
+    case CHANGE_SEARCH_FIELD:
+      return Object.assign({}, state, { searchField: action.payload });
+
+    default:
+      return state;
+  }
 };
 
 
-//a rducer which takes an action and changes the state in the redux store based on the action
-export const searchRobots = (state=initialState, action={}) =>{
+const initialStateRobots = {
+    isLoading: false,
+    robots: [],
+    error: ""
+};
 
-    switch(action.type){
-        case CHANGE_SEARCH_FIELD:
-            return Object.assign({}, state, { searchField : action.payload});
+export const getRobots = (state = initialStateRobots, action = {}) => {
 
-        default:
-            return state;
-    }
-
-}
+    switch (action.type) {
+    case ROBOT_REQUEST_PENDING:
+      return Object.assign({}, state, { isLoading: true });
+    case ROBOT_REQUEST_SUCCESS:
+      return Object.assign({}, state, { robots: action.payload, isLoading: false });
+    case ROBOT_REQUEST_FAILED:
+      return Object.assign({}, state, { isLoading: false, error: action.payload });
+    default:
+      return state;
+  }
+};

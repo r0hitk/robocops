@@ -6,16 +6,21 @@ import ErrorBoundary from "../components/ErrorBoundary";
 import { connect } from "react-redux";
 import { setSearchBox } from "../actions";
 
-
 //since only one reucer, so directly state.searchField is used
 const mapStateToProps = (state) => {
-  return { searchField: state.searchField };
+  return {
+    searchField: state.searchField,
+    robots: state.getRobots.robots,
+    isLoading: state.getRobots.isLoading,
+    error: state.getRobots.error,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return { onSearchChange: (event) => dispatch(setSearchBox(event.target.value)) };
+  return {
+    onSearchChange: (event) => dispatch(setSearchBox(event.target.value)),
+  };
 };
-
 
 class App extends React.Component {
   constructor(props) {
@@ -31,15 +36,10 @@ class App extends React.Component {
       .then((json) => this.setState({ robots: json }));
   }
 
-
   render() {
-
-    const {robots} = this.state;
-    const {searchField, onSearchChange} = this.props;
+    const { searchField, onSearchChange, robots } = this.props;
     const filteredRobots = robots.filter((robot) => {
-      return robot.name
-        .toLowerCase()
-        .includes(searchField.toLowerCase());
+      return robot.name.toLowerCase().includes(searchField.toLowerCase());
     });
 
     return (
