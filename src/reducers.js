@@ -32,6 +32,7 @@ export const getRobots = (state = initialStateRobots, action = {}) => {
       return Object.assign({}, state, { robots: action.payload, isLoading: false });
     case ROBOT_REQUEST_FAILED:
       return Object.assign({}, state, { isLoading: false, error: action.payload });
+      
     default:
       return state;
   }

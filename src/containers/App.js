@@ -4,12 +4,13 @@ import SearchBox from "../components/SearchBox";
 import Scroll from "../components/Scroll";
 import ErrorBoundary from "../components/ErrorBoundary";
 import { connect } from "react-redux";
-import { setSearchBox } from "../actions";
+import { setSearchBox, requestRobots } from "../actions";
+
 
 //since only one reucer, so directly state.searchField is used
 const mapStateToProps = (state) => {
   return {
-    searchField: state.searchField,
+    searchField: state.searchRobots.searchField,
     robots: state.getRobots.robots,
     isLoading: state.getRobots.isLoading,
     error: state.getRobots.error,
@@ -19,21 +20,14 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onSearchChange: (event) => dispatch(setSearchBox(event.target.value)),
+    onRobotRequest: () => dispatch(requestRobots())
   };
 };
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      robots: [],
-    };
-  }
 
   componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/users") //fetch is a part of window object
-      .then((response) => response.json())
-      .then((json) => this.setState({ robots: json }));
+    this.props.onRobotRequest();
   }
 
   render() {
