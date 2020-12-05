@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { setSearchBox, requestRobots } from "../actions";
 
 
-//since only one reucer, so directly state.searchField is used
+//since only one reducer, so directly state.searchField is used
 const mapStateToProps = (state) => {
   return {
     searchField: state.searchRobots.searchField,
